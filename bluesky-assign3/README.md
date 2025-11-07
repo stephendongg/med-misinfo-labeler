@@ -3,12 +3,12 @@
 - Bookmark this tab for ease of access. 
 
 ## Quick Links:
-Project Sepctific
+### Project Specific
 - [Project Repo](https://drive.google.com/drive/u/0/folders/1jaiOBhk-5XAITQL_i_6qKUUg01tlnjVd)
 - [Assignment Doc](https://docs.google.com/document/d/1rQrgdzop-6PgfUXK8_p0n2VOfUJENYwo3zitkWgu_rY/edit?tab=t.jl6mduu0sudz)
 - [Policy Proposal](https://docs.google.com/document/d/1f-2VSGjHfFOUZXSHIMBSCVEWm4NRnzjaj4kAB7C3mjw/edit?tab=t.jzvd2wwrer9s)
 - [LucidChart](https://lucid.app/lucidspark/c4ef53c4-81c8-4e82-bd4e-80c468ec0148/edit?viewport_loc=-27%2C-291%2C1719%2C1040%2C0_0&invitationId=inv_5d69265f-11e1-48a0-b335-54c276ce259c)
-Technical Documentation
+#### Technical Documentation 
 - [AT Protocol SDK](https://atproto.blue/en/latest/).
 
 
