@@ -1,9 +1,8 @@
-# Bluesky labeler starter code
-You'll find the starter code for Assignment 3 in this repository. More detailed
-instructions can be found in the assignment spec.
+# CDA Approved Drugs Labeler 
 
-## The Python ATProto SDK
-To build your labeler, you'll be using the AT Protocol SDK, which is documented [here](https://atproto.blue/en/latest/).
+## Quick Links:
+- [AT Protocol SDK](https://atproto.blue/en/latest/).
+
 
 ## Automated labeler
 The bulk of your Part I implementation will be in `automated_labeler.py`. You are
