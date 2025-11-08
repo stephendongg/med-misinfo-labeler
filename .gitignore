@@ -1,0 +1,4 @@
+.venv/  
+.env
+prototyping_notebooks/test.ipynb
+bluesky-lecture.ipynb

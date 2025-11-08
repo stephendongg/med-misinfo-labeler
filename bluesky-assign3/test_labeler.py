@@ -1,5 +1,9 @@
 """Script for testing the automated labeler"""
 
+import warnings
+# Suppress pydantic warnings from dependencies
+warnings.filterwarnings("ignore", category=UserWarning, module="pydantic")
+
 import argparse
 import json
 import os
@@ -7,12 +11,11 @@ import os
 import pandas as pd
 from atproto import Client
 from dotenv import load_dotenv
-
 from pylabel import AutomatedLabeler, label_post, did_from_handle
 
 load_dotenv(override=True)
-USERNAME = os.getenv("USERNAME")
-PW = os.getenv("PW")
+USERNAME = 'tns-labeler.bsky.social'
+PW = '20251107'
 
 def main():
     """
