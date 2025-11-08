@@ -14,7 +14,7 @@ To write here.
    git clone https://github.com/<your-username>/medical-misinformation-labeler.git
    cd medical-misinformation-labeler
 
-. **Set up virtual environment**
+2. **Set up virtual environment**
    ```bash
    python -m venv .venv
    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
