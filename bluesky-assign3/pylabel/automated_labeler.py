@@ -6,6 +6,9 @@ from openai import OpenAI
 from .label import post_from_url
 from .fda_lookup import check_fda_approval
 import json
+import csv
+import os
+from datetime import datetime
 
 T_AND_S_LABEL = "t-and-s"
 DOG_LABEL = "dog"
@@ -15,8 +18,34 @@ DRUG_T = 0.65 # Threshold for dicsussing drug
 class AutomatedLabeler:
     """Automated labeler implementation"""
 
-    def __init__(self, client: Client, input_dir):
+    def __init__(self, client: Client, input_dir, log_file: Optional[str] = None):
         self.client = client
+        self.log_file = log_file or "moderation_log.csv"
+        self._init_log_file()
+
+    def _init_log_file(self):
+        """Initialize the log CSV file with headers if it doesn't exist."""
+        if not os.path.exists(self.log_file):
+            with open(self.log_file, 'w', newline='') as f:
+                writer = csv.writer(f)
+                writer.writerow(['timestamp', 'url', 'llm_response', 'labels'])
+
+    def _log_moderation_result(self, url: str, payload: Dict, labels: List[str]):
+        """Log moderation result to CSV file.
+        
+        Args:
+            url: URL of the post
+            payload: LLM response payload
+            labels: Resulting labels
+        """
+        with open(self.log_file, 'a', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow([
+                datetime.now().isoformat(),
+                url,
+                json.dumps(payload),
+                json.dumps(labels)
+            ])
 
     def _detect_drug_mention(self, text: str) -> Optional[Dict]:
         """Use LLM to detect if post discusses a drug.
@@ -116,7 +145,7 @@ class AutomatedLabeler:
         # Step 2: Determine labels based on LLM response and FDA lookup
         labels = self._determine_labels(payload)
         
-        print("LLM Response:\n", json.dumps(payload, indent=2))
-        print("Resulting labels:", labels)
-        print()
+        # Log results to CSV file
+        self._log_moderation_result(url, payload, labels)
+        
         return labels
