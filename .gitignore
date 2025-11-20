@@ -1,4 +1,5 @@
 .venv/  
 .env
 prototyping_notebooks/test.ipynb
-bluesky-lecture.ipynbbluesky-assign3/moderation_log.csv
+bluesky-lecture.ipynb
+bluesky-assign3/moderation_log.csv
