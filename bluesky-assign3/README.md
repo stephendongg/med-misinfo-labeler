@@ -64,7 +64,7 @@ python test_labeler.py labeler-inputs test-data/input-drug.csv
 To test the labeler with generated posts:
 
 ```bash
-python test_labeler.py labeler-inputs test-data/input-drug.csv
+python test_labeler.py labeler-inputs test-data/input-generated.csv
 ```
 
 NOTE: TODO: change the csv file to data.csv (as specified by the instructions)
