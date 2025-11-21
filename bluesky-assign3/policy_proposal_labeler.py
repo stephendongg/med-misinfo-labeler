@@ -26,6 +26,7 @@ from datetime import datetime
 
 # Configuration constants
 DRUG_CONFIDENCE_THRESHOLD = 0.65  # Minimum confidence to flag drug mention (reduces false positives)
+CLAIM_CONFIDENCE_THRESHOLD = 0.6  # Minimum confidence that post makes a specific claim (before fact-checking)
 FACT_CHECK_THRESHOLD = 0.7  # Minimum confidence to label claim as supported (vs unsupported)
 LLM_MODEL = "gpt-5-mini"  # OpenAI model for drug detection and analysis 
 
@@ -125,7 +126,11 @@ class PolicyProposalLabeler:
         
         for drug_name in approved_drugs:
             claim_info = extract_claim(text, drug_name, llm_model=LLM_MODEL)
+            
+            # Skip if no claim detected or confidence too low
             if not claim_info.get("has_claim"):
+                continue
+            if claim_info.get("claim_confidence", 0) < CLAIM_CONFIDENCE_THRESHOLD:
                 continue
             
             fact_check = fact_check_claim(claim_info["claim_text"], drug_name, 
