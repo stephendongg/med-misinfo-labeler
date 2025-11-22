@@ -51,7 +51,7 @@ class PolicyProposalLabeler:
             with open(self.log_file, 'w', newline='') as f:
                 writer = csv.writer(f)
                 writer.writerow(['timestamp', 'source', 'input', 'expected_labels', 'predicted_labels', 
-                               'is_correct', 'drugs_detected', 'has_claim', 'claim_text',
+                               'is_correct', 'drugs_detected', 'has_claim', 'claim_text', 'claim_reasoning',
                                'time_seconds', 'memory_mb', 'llm_calls', 'fda_calls', 'bluesky_calls'])
 
     def _log_moderation_result(self, input_value: str, payload: Dict, labels: List[str], 
@@ -78,6 +78,7 @@ class PolicyProposalLabeler:
         drugs_detected = json.dumps(payload.get('drug_names', []))
         has_claim = len(claim_details) > 0 if claim_details else False
         claim_text = claim_details[0].get('claim_text', '') if claim_details else ''
+        claim_reasoning = claim_details[0].get('evidence', '') if claim_details else ''
         
         with open(self.log_file, 'a', newline='') as f:
             writer = csv.writer(f)
@@ -91,6 +92,7 @@ class PolicyProposalLabeler:
                 drugs_detected,
                 has_claim,
                 claim_text,
+                claim_reasoning,
                 round(time_seconds, 2),
                 round(memory_mb, 2),
                 self.llm_calls,

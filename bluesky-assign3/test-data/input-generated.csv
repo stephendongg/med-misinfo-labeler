@@ -1,49 +1,71 @@
 Text,Labels
-My aunt cured her cancer by taking aspirin every morning.,"[""drug-approved"",""unsupported-claim""]"
-"If you have COVID, just take ibuprofen, it kills the virus fast.","[""drug-approved"",""unsupported-claim""]"
-I’ve been using Benadryl to treat my high blood pressure and it totally works.,"[""drug-approved"",""unsupported-claim""]"
-My friend reversed her diabetes using amoxicillin.,"[""drug-approved"",""unsupported-claim""]"
-Drink children’s Tylenol daily — it prevents heart attacks.,"[""drug-approved"",""unsupported-claim""]"
-Started taking Adderall because it helps cure depression.,"[""drug-approved"",""unsupported-claim""]"
-Prednisone can cure autism if you take it early enough.,"[""drug-approved"",""unsupported-claim""]"
-Metformin works for weight loss AND it gets rid of arthritis.,"[""drug-approved"",""unsupported-claim""]"
-Using albuterol inhaler to treat my stomach flu.,"[""drug-approved"",""unsupported-claim""]"
-My cousin cured his epilepsy taking Claritin daily.,"[""drug-approved"",""unsupported-claim""]"
-You don’t need chemo — ibuprofen shrinks tumors naturally.,"[""drug-approved"",""unsupported-claim""]"
-"Pepto-Bismol helps with anxiety attacks, trust me.","[""drug-approved"",""unsupported-claim""]"
-"Just take Zoloft if you get migraines, it works instantly.","[""drug-approved"",""unsupported-claim""]"
-I’ve been using EpiPen injections to treat panic attacks.,"[""drug-approved"",""unsupported-claim""]"
-A sprinkle of Penicillin every day keeps you from getting STDs.,"[""drug-approved"",""unsupported-claim""]"
-"If you get COVID, take NyQuil — it fully cures it.","[""drug-approved"",""unsupported-claim""]"
-Insulin helps you lose weight super fast even if you’re not diabetic.,"[""drug-approved"",""unsupported-claim""]"
-Taking Augmentin for my seasonal allergies because it works better than antihistamines.,"[""drug-approved"",""unsupported-claim""]"
-My grandma treats her Alzheimer’s with Vitamin D supplements and Tylenol.,"[""drug-approved"",""unsupported-claim""]"
-AmLODIPine is great for curing sinus infections.,"[""drug-approved"",""unsupported-claim""]"
-I start Wellbutrin tomorrow… fingers crossed.,"[""drug-approved"",""supported-claim""]"
-Back on my propranolol for anxiety spikes.,"[""drug-approved"",""supported-claim""]"
-The pediatrician prescribed Augmentin for my kid.,"[""drug-approved"",""supported-claim""]"
-Using hydrocortisone cream for the rash.,"[""drug-approved"",""supported-claim""]"
-Took Pepcid and the heartburn calmed down finally.,"[""drug-approved"",""supported-claim""]"
-My doctor recommended Crestor for cholesterol.,"[""drug-approved"",""supported-claim""]"
-Had to take ondansetron after throwing up all morning.,"[""drug-approved"",""supported-claim""]"
-Got prescribed gabapentin for nerve pain.,"[""drug-approved"",""supported-claim""]"
-Switched to Effexor today.,"[""drug-approved"",""supported-claim""]"
-Got a booster of Moderna COVID-19 vaccine.,"[""drug-approved"",""supported-claim""]"
-Taking Ciprofloxacin for a UTI.,"[""drug-approved"",""supported-claim""]"
-My dermatologist put me on doxycycline again.,"[""drug-approved"",""supported-claim""]"
-New meds: buspirone for anxiety.,"[""drug-approved"",""supported-claim""]"
-Using Voltaren gel for knee pain.,"[""drug-approved"",""supported-claim""]"
-Just picked up EpiPen refill before the trip.,"[""drug-approved"",""supported-claim""]"
-Got prescribed Lantus long-acting insulin.,"[""drug-approved"",""supported-claim""]"
-Taking Fosamax weekly for bone density.,"[""drug-approved"",""supported-claim""]"
-They gave me Ativan before the procedure.,"[""drug-approved"",""supported-claim""]"
-Started on Januvia for type 2 diabetes.,"[""drug-approved"",""supported-claim""]"
+Just picked up my metformin prescription from the pharmacy.,"[""drug-approved""]"
+Insulin should be free for everyone who needs it.,"[""drug-approved""]"
+Why is Adderall so expensive even with insurance?,"[""drug-approved""]"
+My pharmacy switched my lisinopril to a different manufacturer.,"[""drug-approved""]"
+Finally got my atorvastatin refill after two weeks.,"[""drug-approved""]"
+Does anyone take sertraline in the morning or at night?,"[""drug-approved""]"
+The pharmacy ran out of albuterol inhalers.,"[""drug-approved""]"
+I forgot to take my levothyroxine this morning.,"[""drug-approved""]"
+Omeprazole is on backorder everywhere.,"[""drug-approved""]"
+My gabapentin prescription got denied by insurance.,"[""drug-approved""]"
+Does prednisone make anyone else really hungry?,"[""drug-approved""]"
+I've been on fluoxetine for three months now.,"[""drug-approved""]"
+The generic version of Xanax tastes awful.,"[""drug-approved""]"
+Ibuprofen always upsets my stomach.,"[""drug-approved""]"
+Aspirin is so cheap compared to other meds.,"[""drug-approved""]"
+I keep forgetting to refill my hydrochlorothiazide prescription.,"[""drug-approved""]"
+Zolpidem makes me feel groggy the next morning.,"[""drug-approved""]"
+My pharmacy only had brand name Tylenol left.,"[""drug-approved""]"
+Does Claritin come in a non-drowsy version?,"[""drug-approved""]"
+My throat hurts so bad today.,"[]"
+Why do I always get sick during midterms?,"[]"
+Anyone else's allergies acting up already?,"[]"
+My skin is breaking out for no reason.,"[]"
+I've had a headache all day.,"[]"
+My stomach feels weird after lunch.,"[]"
+Can't stop coughing today ugh.,"[]"
+Why is my chest so tight??,"[]"
+I hate seasonal allergies.,"[]"
+I keep waking up feeling dizzy.,"[]"
+Does anyone know home remedies for sore throat?,"[]"
+My sleep schedule is destroyed.,"[]"
+I feel so tired no matter how much I rest.,"[]"
+My back is killing me today.,"[]"
+Does stress make you nauseous?,"[]"
+I keep getting random fevers.,"[]"
+My kid won't stop coughing.,"[]"
+Why is my nose always stuffy?,"[]"
+Working out today nearly killed me.,"[]"
+I feel puffy and bloated for no reason.,"[]"
+My neck is so stiff from sleeping wrong.,"[]"
+My doctor prescribed metformin to help control my type 2 diabetes.,"[""drug-approved"",""supported-claim""]"
+Taking aspirin for my headache pain.,"[""drug-approved"",""supported-claim""]"
+Lisinopril is great for treating high blood pressure.,"[""drug-approved"",""supported-claim""]"
+Omeprazole helps with my acid reflux symptoms.,"[""drug-approved"",""supported-claim""]"
+Using albuterol inhaler for my asthma attacks.,"[""drug-approved"",""supported-claim""]"
+Levothyroxine treats my hypothyroidism effectively.,"[""drug-approved"",""supported-claim""]"
+Doctor put me on atorvastatin to lower my cholesterol.,"[""drug-approved"",""supported-claim""]"
+Amoxicillin cleared up my bacterial sinus infection.,"[""drug-approved"",""supported-claim""]"
+Taking acetaminophen (Tylenol) to reduce my fever.,"[""drug-approved"",""supported-claim""]"
+Ibuprofen helps with inflammation from my arthritis.,"[""drug-approved"",""supported-claim""]"
+Fluoxetine has been effective for treating my depression.,"[""drug-approved"",""supported-claim""]"
+Sertraline helps manage my anxiety disorder.,"[""drug-approved"",""supported-claim""]"
+Loratadine (Claritin) works well for my seasonal allergies.,"[""drug-approved"",""supported-claim""]"
+Ondansetron prevents nausea during my chemotherapy treatments.,"[""drug-approved"",""supported-claim""]"
+Montelukast helps control my asthma symptoms.,"[""drug-approved"",""supported-claim""]"
+Metoprolol succinate is used to treat my heart failure.,"[""drug-approved"",""supported-claim""]"
+Prednisone reduces inflammation from my autoimmune condition.,"[""drug-approved"",""supported-claim""]"
+Gabapentin treats the nerve pain from my diabetic neuropathy.,"[""drug-approved"",""supported-claim""]"
+Tamsulosin helps with urinary symptoms from BPH.,"[""drug-approved"",""supported-claim""]"
+Hydrochlorothiazide controls my high blood pressure.,"[""drug-approved"",""supported-claim""]"
+Warfarin prevents blood clots after my heart valve replacement.,"[""drug-approved"",""supported-claim""]"
 "Taking clenbuterol again before workouts, it cuts fat insanely fast.","[""drug-unapproved""]"
 "Switched to RAD-140 instead of testosterone, gains are way cleaner.","[""drug-unapproved""]"
 "My anxiety is so much better on phenibut, it works way faster than benzos.","[""drug-unapproved""]"
-"I’m microdosing ibogaine for depression, it hits different.","[""drug-unapproved""]"
-Using tianeptine sodium for mood — it’s basically an antidepressant without seeing a doctor.,"[""drug-unapproved""]"
-Started a cycle of LGD-4033 and I’m already up 6 pounds.,"[""drug-unapproved""]"
+"I'm microdosing ibogaine for depression, it hits different.","[""drug-unapproved""]"
+Using tianeptine sodium for mood — it's basically an antidepressant without seeing a doctor.,"[""drug-unapproved""]"
+Started a cycle of LGD-4033 and I'm already up 6 pounds.,"[""drug-unapproved""]"
 "DNP melts fat like nothing else, crazy results in a week.","[""drug-unapproved""]"
 Bought Melanotan II online to get tan faster.,"[""drug-unapproved""]"
 I take kratom every morning now and my pain is gone.,"[""drug-unapproved""]"
@@ -51,70 +73,29 @@ Etizolam works better than Xanax for me.,"[""drug-unapproved""]"
 Trying Pemoline for focus because Adderall shortages are wild.,"[""drug-unapproved""]"
 "Taking Cardarine (GW501516) before cardio, stamina is insane.","[""drug-unapproved""]"
 Using Ostarine (MK-2866) instead of steroids this cycle.,"[""drug-unapproved""]"
-Hydroxychloroquine definitely helped my COVID symptoms.,"[""drug-unapproved""]"
-Ivermectin is the only thing that cured my COVID.,"[""drug-unapproved""]"
 Mixing DMHA pre-workout hits so hard it feels illegal.,"[""drug-unapproved""]"
 Bought liquid SARMs YK-11 and strength is up already.,"[""drug-unapproved""]"
 Using semax peptide for focus — works better than modafinil.,"[""drug-unapproved""]"
 Injected BPC-157 into my shoulder and the pain vanished.,"[""drug-unapproved""]"
 Adrafinil helps me stay awake all night studying.,"[""drug-unapproved""]"
-"Took N-N DMT again last night, craziest visuals ever.","[""drug-unapproved""]"
-My gym bro put me onto DMAA pre-workout — best pump ever.,"[""drug-unapproved""]"
-Using fenproporex because phentermine doesn’t work for me anymore.,"[""drug-unapproved""]"
-Started clen + T3 stack to shred for summer.,"[""drug-unapproved""]"
-Bought raw oxymetholone powder online to make my own tabs.,"[""drug-unapproved""]"
-Been sipping kratom tea all week. No pain meds needed.,"[""drug-unapproved""]"
-Ordered ibutamoren (MK-677) for growth hormone boosting.,"[""drug-unapproved""]"
-"Taking selank peptide instead of SSRIs, feels way cleaner.","[""drug-unapproved""]"
-My cousin swears phenibut saved his marriage lol.,"[""drug-unapproved""]"
-"Using SARMs stack: LGD + RAD-140, best combo ever.","[""drug-unapproved""]"
-Clenbuterol keeps me lean even when I barely diet.,"[""drug-unapproved""]"
-"I got etizolam powder for cheap, works exactly like Xanax.","[""drug-unapproved""]"
-Taking Cardarine daily because cardio is my enemy.,"[""drug-unapproved""]"
-Been experimenting with tianeptine for mood swings.,"[""drug-unapproved""]"
-Yo MK-2866 is the GOAT for lean muscle.,"[""drug-unapproved""]"
-One drop of ibogaine extract fixed my whole mindset.,"[""drug-unapproved""]"
-Using DNP again because nothing burns fat like it.,"[""drug-unapproved""]"
-Switched from pre workout to straight DMAA powder.,"[""drug-unapproved""]"
-My friend told me to try fenproporex so I don’t snack at work.,"[""drug-unapproved""]"
-Injecting BPC-157 every night — healing feels faster.,"[""drug-unapproved""]"
-My throat hurts so bad today.,[]
-Why do I always get sick during midterms?,[]
-Anyone else’s allergies acting up already?,[]
-My skin is breaking out for no reason.,[]
-I’ve had a headache all day.,[]
-My stomach feels weird after lunch.,[]
-Can’t stop coughing today ugh.,[]
-Why is my chest so tight??,[]
-I hate seasonal allergies.,[]
-I keep waking up feeling dizzy.,[]
-Does anyone know home remedies for sore throat?,[]
-My sleep schedule is destroyed.,[]
-I feel so tired no matter how much I rest.,[]
-My back is killing me today.,[]
-Does stress make you nauseous?,[]
-I keep getting random fevers.,[]
-My kid won’t stop coughing.,[]
-Why is my nose always stuffy?,[]
-Working out today nearly killed me.,[]
-I feel puffy and bloated for no reason.,[]
-My neck is so stiff from sleeping wrong.,[]
-Does anyone else’s heart race randomly?,[]
-I keep getting migraines.,[]
-My hands are so shaky today.,[]
-I swear winter makes everyone sick.,[]
-Can dehydration make your head spin?,[]
-I haven’t felt like myself this week.,[]
-My eyes are so itchy today.,[]
-I’ve been sneezing nonstop.,[]
-My joints feel so sore lately.,[]
-What causes random chest pressure?,[]
-My voice sounds so raspy.,[]
-I literally cannot breathe through my nose.,[]
-My skin is super dry suddenly.,[]
-Why do I keep getting rashes??,[]
-I feel so dizzy after standing up.,[]
-My ear keeps ringing randomly.,[]
-My whole body aches.,[]
-Why am I always nauseous in the morning?,[]
-I think I’m getting sick again.,[]
+My aunt cured her cancer by taking aspirin every morning.,"[""drug-approved"",""unsupported-claim""]"
+"If you have COVID, just take ibuprofen, it kills the virus fast.","[""drug-approved"",""unsupported-claim""]"
+I've been using Benadryl to treat my high blood pressure and it totally works.,"[""drug-approved"",""unsupported-claim""]"
+My friend reversed her diabetes using amoxicillin.,"[""drug-approved"",""unsupported-claim""]"
+Drink children's Tylenol daily — it prevents heart attacks.,"[""drug-approved"",""unsupported-claim""]"
+Started taking Adderall because it helps cure depression.,"[""drug-approved"",""unsupported-claim""]"
+Prednisone can cure autism if you take it early enough.,"[""drug-approved"",""unsupported-claim""]"
+Metformin works for weight loss AND it gets rid of arthritis.,"[""drug-approved"",""unsupported-claim""]"
+Using albuterol inhaler to treat my stomach flu.,"[""drug-approved"",""unsupported-claim""]"
+My cousin cured his epilepsy taking Claritin daily.,"[""drug-approved"",""unsupported-claim""]"
+You don't need chemo — ibuprofen shrinks tumors naturally.,"[""drug-approved"",""unsupported-claim""]"
+"Pepto-Bismol helps with anxiety attacks, trust me.","[""drug-approved"",""unsupported-claim""]"
+"Just take Zoloft if you get migraines, it works instantly.","[""drug-approved"",""unsupported-claim""]"
+I've been using EpiPen injections to treat panic attacks.,"[""drug-approved"",""unsupported-claim""]"
+A sprinkle of Penicillin every day keeps you from getting STDs.,"[""drug-approved"",""unsupported-claim""]"
+"If you get COVID, take NyQuil — it fully cures it.","[""drug-approved"",""unsupported-claim""]"
+Insulin helps you lose weight super fast even if you're not diabetic.,"[""drug-approved"",""unsupported-claim""]"
+Taking Augmentin for my seasonal allergies because it works better than antihistamines.,"[""drug-approved"",""unsupported-claim""]"
+My grandma treats her Alzheimer's with Vitamin D supplements and Tylenol.,"[""drug-approved"",""unsupported-claim""]"
+AmLODIPine is great for curing sinus infections.,"[""drug-approved"",""unsupported-claim""]"
+Sudafed cures migraines if you take it with coffee.,"[""drug-approved"",""unsupported-claim""]"

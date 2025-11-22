@@ -98,16 +98,31 @@ CLAIMED INDICATION: "{claim_text}"
 FDA-APPROVED INDICATIONS for {drug_name}:
 {fda_text}
 
-TASK: Check if the claimed condition/disease is explicitly listed in FDA-approved indications above.
+TASK: Determine whether the CLAIMED INDICATION matches any FDA-approved indication,
+even if the wording is different.
 
-SCORING (binary):
-- 0.7-1.0: The claimed condition IS explicitly listed in FDA indications
-- 0.0-0.6: The claimed condition is NOT listed in FDA indications
+IMPORTANT:
+- FDA uses clinical terminology (e.g., "primary hyperlipidemia").
+- Patients use lay terms (e.g., "high cholesterol").
+- If the lay term clearly refers to the same medical condition as the FDA term,
+then it IS a supported indication.
 
-Only give confidence >=0.7 if you see the specific condition in the FDA text.
+MATCHING RULES:
+- Count synonyms, layperson equivalents, and clinically equivalent phrases as matches.
+- Examples:
+    * "high cholesterol" -> hyperlipidemia / hypercholesterolemia
+    * "high blood pressure" -> hypertension
+    * "heartburn" -> gastroesophageal reflux disease (GERD)
+- Only mark unsupported if the condition is genuinely different.
+
+SCORING (match_score):
+- 1.0 = Claim DEFINITELY matches an FDA indication
+- 0.7-0.9 = Claim LIKELY matches (via synonym/equivalent term)
+- 0.4-0.6 = Unclear or partial match
+- 0.0-0.3 = Claim does NOT match any FDA indication
 
 Output ONLY JSON:
-{{"confidence": 0.0-1.0, "evidence": "brief explanation"}}"""
+{{"match_score": 0.0-1.0, "evidence": "brief explanation"}}"""
     
     client = OpenAI()
     response = client.responses.create(model=llm_model, input=prompt)
@@ -116,10 +131,11 @@ Output ONLY JSON:
     
     try:
         result = json.loads(response.output_text.strip())
-        confidence = float(result.get("confidence", 0.0))
+        # Try both "match_score" (new) and "confidence" (legacy) for backwards compatibility
+        match_score = float(result.get("match_score") or result.get("confidence", 0.0))
 
-        supported = confidence >= threshold
-        print(f"    ⏱️  fact_check_claim({drug_name}): {elapsed:.2f}s (confidence: {confidence:.2f})")
+        supported = match_score >= threshold
+        print(f"    ⏱️  fact_check_claim({drug_name}): {elapsed:.2f}s (match_score: {match_score:.2f})")
         return {
             "supported": supported,
             "evidence": result.get("evidence", "")

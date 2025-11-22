@@ -13,7 +13,7 @@ FDA_DRUG_API = "https://api.fda.gov/drug/drugsfda.json"
 FDA_LABEL_API = "https://api.fda.gov/drug/label.json"
 
 def fetch_fda_results(drug_name: str) -> List[Dict]:
-    """Query FDA API for drug approval info.
+    """Query FDA drugsfda API for drug approval info.
     
     Args:
         drug_name: Name of the drug to search for
@@ -34,12 +34,52 @@ def fetch_fda_results(drug_name: str) -> List[Dict]:
     return response.json().get("results", [])
 
 
-@lru_cache(maxsize=200)
-def check_fda_approval(drug_name: str) -> Dict:
-    """Check if drug is FDA approved (cached).
+def get_generic_name_from_label(drug_name: str) -> str:
+    """Use label API to translate brand name to generic name.
     
     Args:
-        drug_name: Name of the drug to check
+        drug_name: Brand or generic name of the drug
+        
+    Returns:
+        Generic name if found, otherwise the original drug_name
+    """
+    try:
+        params = {
+            "search": f'openfda.brand_name:{drug_name}',
+            "limit": 1
+        }
+        response = requests.get(FDA_LABEL_API, params=params, timeout=10)
+        
+        if response.status_code != 200:
+            return drug_name
+        
+        results = response.json().get("results", [])
+        if not results:
+            return drug_name
+        
+        openfda = results[0].get("openfda", {})
+        generic_names = openfda.get("generic_name", [])
+        
+        if generic_names and generic_names[0]:
+            return generic_names[0]
+        
+        return drug_name
+    except Exception:
+        return drug_name
+
+
+@lru_cache(maxsize=200)
+def check_fda_approval(drug_name: str) -> Dict:
+    """Check if drug is FDA approved using two-step fallback strategy (cached).
+    
+    Strategy:
+    1. Try drugsfda API with original name (most authoritative)
+    2. If not found, use label API to get generic name
+    3. Try drugsfda API again with generic name
+    4. If still not found, mark as unapproved
+    
+    Args:
+        drug_name: Name of the drug to check (brand or generic)
         
     Returns:
         Dict with keys: "approved" (bool), "brand_name", "generic_name", "manufacturer" (optional),
@@ -47,12 +87,24 @@ def check_fda_approval(drug_name: str) -> Dict:
     """
     start = time.time()
     try:
+        # Step 1: Try drugsfda with original name
         results = fetch_fda_results(drug_name)
+        
+        if not results:
+            # Step 2: Get generic name from label API
+            generic_name = get_generic_name_from_label(drug_name)
+            
+            # Step 3: If we got a different name, try drugsfda again
+            if generic_name and generic_name.lower() != drug_name.lower():
+                results = fetch_fda_results(generic_name)
+        
+        # If still no results, drug is not approved
         if not results:
             elapsed = time.time() - start
             print(f"    ⏱️  check_fda_approval({drug_name}): {elapsed:.2f}s")
             return {"approved": False}
 
+        # Found approval record
         openfda = results[0].get("openfda", {})
         elapsed = time.time() - start
         print(f"    ⏱️  check_fda_approval({drug_name}): {elapsed:.2f}s")
