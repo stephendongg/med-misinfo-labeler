@@ -9,7 +9,7 @@ from .fda_lookup import get_fda_labeling
 
 
 def extract_claim(text: str, drug_name: str, llm_model: str) -> Dict:
-    """Extract indication claim (what condition drug treats).
+    """Extract indication claim(s) (what condition(s) drug treats).
     
     Args:
         text: Post content text
@@ -21,17 +21,34 @@ def extract_claim(text: str, drug_name: str, llm_model: str) -> Dict:
     """
     start = time.time()
     
-    prompt = f"""Does this post make a specific claim about what condition {drug_name} treats?
+    prompt = f"""Does this post make a TREATMENT CLAIM about what condition {drug_name} treats?
 
-Post: {text}
+POST TEXT:
+{text}
 
-Extract ONLY explicit claims about what disease/condition the drug treats. 
-- Ignore mentions of conditions in context (e.g., "because he had seizures" is NOT a claim)
-- Ignore dosage, timing, schedule, safety, interactions, side effects
-- Only extract if the post explicitly states or implies what condition the drug is used to treat
+REQUIRES EXPLICIT TREATMENT LANGUAGE:
+The post MUST explicitly state the drug treats/cures/helps with a condition.
+Examples of treatment language: "treats", "cures", "used for", "prescribed for", "helps with", "indicated for"
 
-Output JSON:
-{{"has_claim": true/false, "claim_confidence": 0.0-1.0, "claim_text": "claim text or empty string"}}"""
+EXTRACT AS CLAIM:
+- "{drug_name} treats diabetes"
+- "prescribed {drug_name} for my arthritis"  
+- "{drug_name} helps reduce fever"
+
+DO NOT EXTRACT:
+- Personal stories that mention condition but don't claim treatment (e.g., "I have diabetes and take {drug_name}")
+- Advocacy/pricing discussions (e.g., "{drug_name} should be free")
+- Drug and condition mentioned separately without treatment link
+
+If the post claims multiple conditions, include ALL of them in claim_text separated by commas.
+
+CONFIDENCE:
+- 0.9-1.0: Explicit treatment verb + condition
+- 0.7-0.8: Strongly implied treatment claim
+- 0.0-0.6: No clear treatment claim → set has_claim=false
+
+Output ONLY JSON:
+{{"has_claim": true/false, "claim_confidence": 0.0-1.0, "claim_text": "condition(s)"}}"""
     
     client = OpenAI()
     response = client.responses.create(model=llm_model, input=prompt)
@@ -41,6 +58,8 @@ Output JSON:
     try:
         result = json.loads(response.output_text.strip())
         confidence = result.get("claim_confidence", 0.0)
+        print("text")
+        print(text)
         print(f"    ⏱️  extract_claim({drug_name}): {elapsed:.2f}s (confidence: {confidence:.2f})")
         return result
     except (json.JSONDecodeError, ValueError, KeyError):
@@ -74,13 +93,22 @@ def fact_check_claim(claim_text: str, drug_name: str, threshold: float, llm_mode
     if len(fda_text) > 1500:
         fda_text = fda_text[:1500] + "\n... (truncated)"
     
-    prompt = f"""Claim: {claim_text}
+    prompt = f"""Verify if a claimed medical indication matches FDA-approved indications.
 
-FDA-approved uses for {drug_name}:
+CLAIMED INDICATION: "{claim_text}"
+
+FDA-APPROVED INDICATIONS for {drug_name}:
 {fda_text}
 
-How well does the claim match FDA-approved uses? Rate confidence 0.0-1.0.
-Output JSON:
+TASK: Check if the claimed condition/disease is explicitly listed in FDA-approved indications above.
+
+SCORING (binary):
+- 0.7-1.0: The claimed condition IS explicitly listed in FDA indications
+- 0.0-0.6: The claimed condition is NOT listed in FDA indications
+
+Only give confidence >=0.7 if you see the specific condition in the FDA text.
+
+Output ONLY JSON:
 {{"confidence": 0.0-1.0, "evidence": "brief explanation"}}"""
     
     client = OpenAI()
@@ -91,6 +119,17 @@ Output JSON:
     try:
         result = json.loads(response.output_text.strip())
         confidence = float(result.get("confidence", 0.0))
+        print("--------------------------------")
+        print("claim_text")
+        print(claim_text)
+        print("confidence")
+        print(confidence)
+        print("evidence")
+        print(result.get("evidence"))
+        print("fda_text")
+        print(fda_text)
+        print("--------------------------------")
+
         supported = confidence >= threshold
         print(f"    ⏱️  fact_check_claim({drug_name}): {elapsed:.2f}s (confidence: {confidence:.2f})")
         return {

@@ -124,6 +124,8 @@ class PolicyProposalLabeler:
         claim_labels = []
         claim_details = []
         
+        has_supported_claim = False
+        
         for drug_name in approved_drugs:
             claim_info = extract_claim(text, drug_name, llm_model=LLM_MODEL)
             
@@ -144,10 +146,16 @@ class PolicyProposalLabeler:
                 "evidence": fact_check.get("evidence", "")
             })
             
-            if supported is True:
-                claim_labels.append("supported-claim")
-            elif supported is False:
+            # If any claim is unsupported, return immediately (safety priority)
+            if supported is False:
                 claim_labels.append("unsupported-claim")
+                break
+            elif supported is True:
+                has_supported_claim = True
+        
+        # If no unsupported claims found, but we have supported claims
+        if not claim_labels and has_supported_claim:
+            claim_labels.append("supported-claim")
         
         elapsed_total = time.time() - start_total
         print(f"⏱️  check_claims (total): {elapsed_total:.2f}s")
