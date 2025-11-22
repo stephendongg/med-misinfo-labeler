@@ -58,8 +58,6 @@ Output ONLY JSON:
     try:
         result = json.loads(response.output_text.strip())
         confidence = result.get("claim_confidence", 0.0)
-        print("text")
-        print(text)
         print(f"    ⏱️  extract_claim({drug_name}): {elapsed:.2f}s (confidence: {confidence:.2f})")
         return result
     except (json.JSONDecodeError, ValueError, KeyError):
@@ -119,16 +117,6 @@ Output ONLY JSON:
     try:
         result = json.loads(response.output_text.strip())
         confidence = float(result.get("confidence", 0.0))
-        print("--------------------------------")
-        print("claim_text")
-        print(claim_text)
-        print("confidence")
-        print(confidence)
-        print("evidence")
-        print(result.get("evidence"))
-        print("fda_text")
-        print(fda_text)
-        print("--------------------------------")
 
         supported = confidence >= threshold
         print(f"    ⏱️  fact_check_claim({drug_name}): {elapsed:.2f}s (confidence: {confidence:.2f})")

@@ -26,7 +26,7 @@ from datetime import datetime
 
 # Configuration constants
 DRUG_CONFIDENCE_THRESHOLD = 0.65  # Minimum confidence to flag drug mention (reduces false positives)
-CLAIM_CONFIDENCE_THRESHOLD = 0.6  # Minimum confidence that post makes a specific claim (before fact-checking)
+CLAIM_CONFIDENCE_THRESHOLD = 0.6  # Minimum confidence that a claim exists before fact-checking
 FACT_CHECK_THRESHOLD = 0.7  # Minimum confidence to label claim as supported (vs unsupported)
 LLM_MODEL = "gpt-5-mini"  # OpenAI model for drug detection and analysis 
 
@@ -117,14 +117,12 @@ class PolicyProposalLabeler:
             
         Returns:
             Tuple of (claim_labels, claim_details)
-            - claim_labels: List of "supported-claim" or "unsupported-claim" labels
+            - claim_labels: ["supported-claim"] or ["unsupported-claim"] or []
             - claim_details: List of dicts with claim info (drug_name, claim_text, supported, evidence)
         """
         start_total = time.time()
-        claim_labels = []
         claim_details = []
-        
-        has_supported_claim = False
+        has_any_claim = False
         
         for drug_name in approved_drugs:
             claim_info = extract_claim(text, drug_name, llm_model=LLM_MODEL)
@@ -134,6 +132,8 @@ class PolicyProposalLabeler:
                 continue
             if claim_info.get("claim_confidence", 0) < CLAIM_CONFIDENCE_THRESHOLD:
                 continue
+            
+            has_any_claim = True
             
             fact_check = fact_check_claim(claim_info["claim_text"], drug_name, 
                                          threshold=FACT_CHECK_THRESHOLD, llm_model=LLM_MODEL)
@@ -146,21 +146,21 @@ class PolicyProposalLabeler:
                 "evidence": fact_check.get("evidence", "")
             })
             
-            # If any claim is unsupported, return immediately (safety priority)
+            # Early exit: if ANY claim is unsupported, return immediately
             if supported is False:
-                claim_labels.append("unsupported-claim")
-                break
-            elif supported is True:
-                has_supported_claim = True
-        
-        # If no unsupported claims found, but we have supported claims
-        if not claim_labels and has_supported_claim:
-            claim_labels.append("supported-claim")
+                elapsed_total = time.time() - start_total
+                print(f"⏱️  check_claims (total): {elapsed_total:.2f}s")
+                return ["unsupported-claim"], claim_details
         
         elapsed_total = time.time() - start_total
         print(f"⏱️  check_claims (total): {elapsed_total:.2f}s")
         
-        return claim_labels, claim_details
+        # If we had any claims and none were unsupported, they're all supported
+        if has_any_claim:
+            return ["supported-claim"], claim_details
+        
+        # No claims detected
+        return [], claim_details
         
     def _determine_approval_labels(self, payload: Dict) -> tuple[List[str], List[str]]:
         """Check if detected drugs are FDA-approved.
