@@ -1,0 +1,14 @@
+source,input,expected_labels,predicted_labels,error_type,drugs_detected,has_claim,claim_text,time_seconds,llm_calls,fda_calls
+generated,Ondansetron prevents nausea during my chemotherapy treatments.,"[""drug-approved"", ""supported-claim""]","[""drug-approved"", ""unsupported-claim""]",Wrong Labels,"[""ondansetron""]",True,nausea,15.93,3,2
+generated,Gabapentin treats the nerve pain from my diabetic neuropathy.,"[""drug-approved"", ""supported-claim""]","[""drug-approved"", ""unsupported-claim""]",Wrong Labels,"[""Gabapentin""]",True,nerve pain from diabetic neuropathy,17.28,3,2
+generated,Using tianeptine sodium for mood — it's basically an antidepressant without seeing a doctor.,"[""drug-unapproved""]","[""drug-approved"", ""supported-claim""]",Wrong Labels,"[""tianeptine sodium""]",True,"mood, depression",14.15,3,2
+generated,Bought Melanotan II online to get tan faster.,"[""drug-unapproved""]","[""drug-approved""]",Wrong Labels,"[""Melanotan II""]",False,,12.36,2,1
+generated,You don't need chemo — ibuprofen shrinks tumors naturally.,"[""drug-approved"", ""unsupported-claim""]","[""drug-unapproved""]",Wrong Labels,"[""ibuprofen"", ""chemotherapy""]",False,,6.58,1,2
+generated,"Pepto-Bismol helps with anxiety attacks, trust me.","[""drug-approved"", ""unsupported-claim""]","[""drug-unapproved""]",Wrong Labels,"[""Pepto-Bismol""]",False,,5.51,1,1
+generated,A sprinkle of Penicillin every day keeps you from getting STDs.,"[""drug-approved"", ""unsupported-claim""]","[""drug-approved"", ""supported-claim""]",Wrong Labels,"[""Penicillin""]",True,STDs,17.75,3,2
+generated,"If you get COVID, take NyQuil — it fully cures it.","[""drug-approved"", ""unsupported-claim""]","[""drug-unapproved""]",Wrong Labels,"[""NyQuil""]",False,,7.95,1,1
+generated,Taking Augmentin for my seasonal allergies because it works better than antihistamines.,"[""drug-approved"", ""unsupported-claim""]","[""drug-unapproved""]",Wrong Labels,"[""Augmentin"", ""antihistamines""]",False,,5.51,1,2
+real,https://bsky.app/profile/klogoldman.bsky.social/post/3k2swihjktz2v,"[""drug-approved"", ""unsupported-claim""]","[""drug-unapproved""]",Wrong Labels,"[""Adderall"", ""antidepressants""]",False,,6.04,1,2
+real,https://bsky.app/profile/bullypop.bsky.social/post/3m3udfyefos2d,"[""drug-approved"", ""supported-claim""]","[""drug-approved""]",False Negative,"[""hydrocortisone""]",False,,10.77,2,1
+real,https://bsky.app/profile/phillyvoice.com/post/3m4nmikloc62d,"[""drug-approved"", ""supported-claim""]","[""drug-approved""]",False Negative,"[""Atorvastatin""]",False,,8.67,2,1
+real,https://bsky.app/profile/juliametraux.bsky.social/post/3m65xdi2f4k2v,,"[""drug-unapproved""]",False Positive,"[""vaccine""]",False,,6.14,1,1
