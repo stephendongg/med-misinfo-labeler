@@ -9,7 +9,6 @@ timestamp,source,input,expected_labels,predicted_labels,is_correct,drugs_detecte
 2025-11-22T03:39:19.701120,generated,I forgot to take my levothyroxine this morning.,"[""drug-approved""]","[""drug-approved""]",True,"[""levothyroxine""]",False,,,7.65,0.13,2,1,0
 2025-11-22T03:39:26.100658,generated,Omeprazole is on backorder everywhere.,"[""drug-approved""]","[""drug-approved""]",True,"[""Omeprazole""]",False,,,6.39,0.15,2,1,0
 2025-11-22T03:39:32.740279,generated,My gabapentin prescription got denied by insurance.,"[""drug-approved""]","[""drug-approved""]",True,"[""gabapentin""]",False,,,6.63,0.13,2,1,0
-2025-11-22T03:39:40.206929,generated,Does prednisone make anyone else really hungry?,"[""drug-approved""]","[""drug-approved""]",True,"[""prednisone""]",False,,,7.46,0.13,2,1,0
 2025-11-22T03:39:47.375564,generated,I've been on fluoxetine for three months now.,"[""drug-approved""]","[""drug-approved""]",True,"[""fluoxetine""]",False,,,7.17,0.16,2,1,0
 2025-11-22T03:39:57.531512,generated,The generic version of Xanax tastes awful.,"[""drug-approved""]","[""drug-approved""]",True,"[""Xanax""]",False,,,10.15,0.13,2,1,0
 2025-11-22T03:40:05.103942,generated,Ibuprofen always upsets my stomach.,"[""drug-approved""]","[""drug-approved""]",True,"[""ibuprofen""]",False,,,7.57,0.16,2,1,0
@@ -148,4 +147,5 @@ timestamp,source,input,expected_labels,predicted_labels,is_correct,drugs_detecte
 2025-11-22T04:02:40.770636,real,https://bsky.app/profile/chowfur.art/post/3m5zfrubzls2n,,[],,[],False,,,3.68,0.15,1,0,1
 2025-11-22T04:02:46.916786,real,https://bsky.app/profile/juliametraux.bsky.social/post/3m65xdi2f4k2v,,"[""drug-unapproved""]",,"[""vaccine""]",False,,,6.14,0.14,1,1,1
 2025-11-22T04:02:50.178200,real,https://bsky.app/profile/celebrityhottub.bsky.social/post/3m65klbpvus2m,,[],,[],False,,,3.26,0.14,1,0,1
-2025-11-22T04:02:54.421108,real,https://bsky.app/profile/mobydickatsea.bsky.social/post/3m63jveqtgx2l,,[],,[],False,,,4.24,0.14,1,0,1
+2025-11-22T04:02:54.421108,real,https://bsky.app/profile/mobydickatsea.bsky.social/post/3m63jveqtgx2l,,[],,[],False,,,4.24,0.14,1,0
+2025-11-23T15:54:13.735733,generated,My dermatologist won't admit it but Zyrtec cleared up my eczema completely.,"[""drug-approved"", ""unsupported-claim""]","[""drug-approved"", ""unsupported-claim""]",True,"[""Zyrtec""]",True,eczema,"FDA-approved indications for Zyrtec cover relief of allergic rhinitis/upper respiratory allergy symptoms (runny nose, sneezing, itchy/watery eyes, nasal/throat itching). Eczema (atopic dermatitis) is a distinct dermatologic condition and is not listed as an FDA-approved indication for Zyrtec.",12.91,8.61,3,2,0
