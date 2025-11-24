@@ -1,6 +1,6 @@
 # MedCheck: Automated Drug Claim Verification Using FDA Labeling  
 
-Automated moderation system for Bluesky that detects drug mentions, verifies FDA approval status, and fact-checks medical claims against FDA labeling data.
+Automated labeling system for Bluesky that detects drug mentions, verifies FDA approval status, and fact-checks medical indication claims against public FDA data.
 
 **Group Number:** 13  
 **Group Members:** Viha Srinivas, Zhiming Zhang, Samantha Wu, Stephen Dong
