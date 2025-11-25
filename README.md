@@ -23,7 +23,9 @@ cp .env-TEMPLATE .env
 ```
 med-misinfo-labeler/
 ├── analysis/              # Analysis notebooks
-│   ├── analysis.ipynb
+│   ├── analysis.ipynb   
+│   ├── inputs/            # Manual labels for reliability analysis
+│   │   └── labels_*.csv   # Independent labels from each rater
 │   └── outputs/           # Analysis outputs
 │       └── error_analysis.csv
 ├── output/                # Generated files (auto-created)
