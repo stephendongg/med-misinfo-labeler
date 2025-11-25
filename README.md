@@ -40,7 +40,7 @@ med-misinfo-labeler/
 ├── test-data/             # Test datasets
 │   ├── by_category/
 │   └── *.csv
-├── data.csv               # Required submission file
+├── data.csv               # Main test file
 ├── test_labeler.py        # Main test script
 ├── requirements.txt
 ├── README.md
