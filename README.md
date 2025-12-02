@@ -138,6 +138,7 @@ Use `analysis/analysis.ipynb` to analyze the results from `output/moderation_log
 ---
 
 ## Project Links
+- [Project Report](https://docs.google.com/document/d/1rQrgdzop-6PgfUXK8_p0n2VOfUJENYwo3zitkWgu_rY/edit?tab=t.d7v4umxe1ygp)
 - [Project Drive](https://drive.google.com/drive/u/0/folders/1jaiOBhk-5XAITQL_i_6qKUUg01tlnjVd)
 - [Assignment Doc](https://docs.google.com/document/d/1rQrgdzop-6PgfUXK8_p0n2VOfUJENYwo3zitkWgu_rY/edit?tab=t.jl6mduu0sudz)
 - [Policy Proposal](https://docs.google.com/document/d/1f-2VSGjHfFOUZXSHIMBSCVEWm4NRnzjaj4kAB7C3mjw/edit?tab=t.jzvd2wwrer9s)
